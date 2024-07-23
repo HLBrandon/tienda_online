@@ -9,7 +9,7 @@ include '../../../php/conexion.php';
     <h2>Mis Proveedores</h2>
 </div>
 
-<a class="btn btn-lg btn-primary rounded-0" href="<?= URL_RAIZ ?>view/dashboard/proveedores/registrar-proveedor.php"><i class="bi bi-plus-circle me-2"></i>Nuevo</a>
+<a class="btn btn-primary rounded-0" href="<?= URL_RAIZ ?>view/dashboard/proveedores/registrar-proveedor.php"><i class="bi bi-plus-circle me-2"></i>Nuevo</a>
 
 <div class="table-responsive mt-2 mb-5">
     <table class="table table-striped shadow" id="tabla-proveedor">
