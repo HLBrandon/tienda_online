@@ -62,10 +62,9 @@ include '../../../php/conexion.php';
 <?php include '../components/footer.php'; ?>
 
 <script>
+    $(document).ready(function() {
 
-    $(document).ready(function () {
-        
-        $("#proveedor").change(function (e) { 
+        $("#proveedor").change(function(e) {
             e.preventDefault();
             let value = $(this).val();
             if (value !== "") {
@@ -75,7 +74,7 @@ include '../../../php/conexion.php';
             }
         });
 
-        $("#producto").change(function (e) { 
+        $("#producto").change(function(e) {
             e.preventDefault();
             let value = $(this).val();
             if (value !== "") {
@@ -85,24 +84,24 @@ include '../../../php/conexion.php';
             }
         });
 
-        $("#talla").change(function (e) { 
+        $("#talla").change(function(e) {
             e.preventDefault();
             let datos = {
-                "talla_id"    : $(this).val(),
-                "producto_id" : $("#producto").val(),
+                "talla_id": $(this).val(),
+                "producto_id": $("#producto").val(),
                 "proveedor_id": $("#proveedor").val()
             };
             $.ajax({
                 type: "POST",
                 url: "<?= URL_RAIZ ?>php/controladores-admin/entradas/control_listar_precio.php",
                 data: datos,
-                success: function (response) {
+                success: function(response) {
                     $("#precio").val(response);
                 }
             });
         });
 
-        $("#formulario").submit(function (e) { 
+        $("#formulario").submit(function(e) {
             e.preventDefault();
             let formulario = new FormData(this);
             $.ajax({
@@ -111,12 +110,22 @@ include '../../../php/conexion.php';
                 data: formulario,
                 contentType: false,
                 processData: false,
-                success: function (response) {
-                    console.log(response);
+                success: function(response) {
+                    let data = JSON.parse(response);
+                    if (data.status) {
+                        $("#formulario").trigger("reset");
+                        $("#producto").attr("disabled", true);
+                        $("#talla").attr("disabled", true);
+                    }
+                    Swal.fire({
+                        title: data.titulo,
+                        text: data.texto,
+                        icon: data.icono,
+                        confirmButtonText: "Entendido"
+                    })
                 }
             });
         });
 
     });
-
 </script>

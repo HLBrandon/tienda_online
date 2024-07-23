@@ -30,12 +30,10 @@ include '../../../php/conexion.php';
         <tbody class="bg-white">
             <?php
             $sql = "SELECT entrada_id, fecha_entrada, p.proveedor_id, nombre_proveedor, pro.producto_id, nombre_producto, medida_talla, e.precio, e.stock FROM entradas e
-                    INNER JOIN proveedores p
-                    ON e.proveedor_id = p.proveedor_id
-                    INNER JOIN productos pro
-                    ON e.producto_id = pro.producto_id
-                    INNER JOIN tallas t
-                    ON e.talla_id = t.talla_id";
+                    INNER JOIN proveedores p ON e.proveedor_id = p.proveedor_id
+                    INNER JOIN productos pro ON e.producto_id = pro.producto_id
+                    INNER JOIN tallas t ON e.talla_id = t.talla_id
+                    ORDER BY fecha_entrada DESC";
             $resultado = $conexion->query($sql);
 
             while ($row = $resultado->fetch_object()) : ?>
