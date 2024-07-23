@@ -9,7 +9,7 @@ include '../../../php/conexion.php';
     <h2>Entradas de Productos</h2>
 </div>
 
-<a class="btn btn-primary rounded-0" href="<?= URL_RAIZ ?>view/dashboard/marcas/registrar-marca.php"><i class="bi bi-plus-circle me-2"></i>Nuevo</a>
+<a class="btn btn-primary rounded-0" href="<?= URL_RAIZ ?>view/dashboard/entradas/registrar-entrada.php"><i class="bi bi-plus-circle me-2"></i>Nuevo</a>
 <a class="btn btn-danger rounded-0" href="" title="Descargar PDF"><i class="bi bi-box-arrow-in-down me-2"></i>PDF</a>
 <a class="btn btn-success rounded-0" href="" title="Descargar Xlsx"><i class="bi bi-box-arrow-in-down me-2"></i>EXCEL</a>
 
