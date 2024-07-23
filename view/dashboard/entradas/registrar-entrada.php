@@ -45,7 +45,7 @@ include '../../../php/conexion.php';
 
     <div class="col-sm-4">
         <label class="form-label" for="precio">Precio:</label>
-        <input class="form-control form-control-lg rounded-0 border-3" type="number" name="precio" id="precio" placeholder="0.00">
+        <input class="form-control form-control-lg rounded-0 border-3" type="number" step="any" name="precio" id="precio" placeholder="0.00">
     </div>
 
     <div class="col-sm-4">
@@ -112,7 +112,7 @@ include '../../../php/conexion.php';
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    
+                    console.log(response);
                 }
             });
         });
