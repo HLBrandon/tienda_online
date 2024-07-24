@@ -23,14 +23,16 @@ include '../../../php/conexion.php';
                 <th class="text-center">Precio unitario</th>
                 <th class="text-center">Stock</th>
                 <th class="text-center">Total</th>
+                <th class="text-center">Status</th>
                 <th class="text-center">Acción</th>
             </tr>
         </thead>
         <tbody id="cuerpo_tabla_cliente" class="bg-white">
             <?php
-            $sql = "SELECT id, tp.producto_id, nombre_producto, medida_talla, precio, stock FROM tallas_productos tp
+            $sql = "SELECT id, nombre_producto, medida_talla, precio, stock, tp.status_id, status FROM tallas_productos tp
                     INNER JOIN productos p ON tp.producto_id = p.producto_id
                     INNER JOIN tallas t ON tp.talla_id = t.talla_id
+                    INNER JOIN status st ON tp.status_id = st.status_id
                     ORDER BY id";
             $resultado = $conexion->query($sql);
 
@@ -44,6 +46,24 @@ include '../../../php/conexion.php';
                     <td class="text-center"><?= PESO . number_format($row->precio, 2) . MONEDA ?></td>
                     <td class="text-center"><?= $row->stock ?></td>
                     <td class="text-center"><?= PESO . number_format($row->precio * $row->stock, 2) . MONEDA ?></td>
+                    <td class="text-center">
+                        <?php
+                        switch ($row->status_id) {
+                            case 1:
+                                echo "<span class='badge text-bg-success'>{$row->status}</span>";
+                                break;
+                            case 2:
+                                echo "<span class='badge text-bg-danger'>{$row->status}</span>";
+                                break;
+                            case 3:
+                                echo "<span class='badge text-bg-dark'>{$row->status}</span>";
+                                break;
+                            default:
+                                # code...
+                                break;
+                        }
+                        ?>
+                    </td>
                     <td class="text-center">
 
                     </td>
