@@ -54,6 +54,7 @@ include '../../../php/conexion.php';
             language: {
                 url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/es-MX.json',
             },
+            lengthMenu: [5, 10, 20, { label: 'Todo', value: -1 }]
         });
     });
 </script>

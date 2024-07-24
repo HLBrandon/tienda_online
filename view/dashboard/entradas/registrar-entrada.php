@@ -16,7 +16,7 @@ include '../../../php/conexion.php';
             <option value="" selected>Seleccionar...</option>
             <?php $sql = $conexion->query("SELECT proveedor_id, nombre_proveedor FROM proveedores");
             while ($dato = $sql->fetch_object()) : ?>
-                <option value="<?= $dato->proveedor_id ?>"><?= $dato->nombre_proveedor ?></option>
+                <option value="<?= $dato->proveedor_id ?>" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover"><?= $dato->nombre_proveedor ?></option>
             <?php endwhile; ?>
         </select>
     </div>
@@ -57,6 +57,7 @@ include '../../../php/conexion.php';
         <button class="btn btn-lg btn-success rounded-0 border-3 text-uppercase" type="submit">Registrar Entrada</button>
         <a class="btn btn-lg btn-secondary rounded-0 border-3 text-uppercase" href="<?= URL_RAIZ ?>view/dashboard/entradas/">Volver</a>
     </div>
+    
 </form>
 
 <?php include '../components/footer.php'; ?>

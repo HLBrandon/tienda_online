@@ -19,5 +19,10 @@ $url = $_SERVER['REQUEST_URI'];
 #convierte en un arreglo la url
 $titulo = explode("/", $url);
 
+# Simnbolos de monedas
 define('MONEDA', ' MXN');
 define('PESO', '$ ');
+
+#encript
+define('METODO_ENCRIPT', "AES-128-ECB");
+define('CLAVE', "Ran11039@@@");
