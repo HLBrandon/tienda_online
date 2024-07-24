@@ -24,7 +24,6 @@ include '../../../php/conexion.php';
                 <th class="text-center">Precio Unitario</th>
                 <th class="text-center">Stock</th>
                 <th class="text-center">Total</th>
-                <th class="text-center">Acciones</th>
             </tr>
         </thead>
         <tbody class="bg-white">
@@ -49,9 +48,6 @@ include '../../../php/conexion.php';
                     <td class="text-center"><?= number_format($row->precio, 2) . MONEDA ?></td>
                     <td class="text-center"><?= $row->stock ?></td>
                     <td class="text-center"><?= number_format($row->precio * $row->stock, 2) . MONEDA ?></td>
-                    <td class="text-center text-uppercase">
-                        <a class="btn btn-sm btn-outline-success rounded-0 mb-2 mb-lg-0" href="<?= URL_RAIZ ?>view/dashboard/entradas/editar-entrada.php?entrada=<?= $row->entrada_id ?>&token=<?= base64_encode( openssl_encrypt($row->entrada_id, METODO_ENCRIPT, CLAVE) ) ?>">Editar</a>
-                    </td>
                 </tr>
             <?php endwhile; ?>
         </tbody>
