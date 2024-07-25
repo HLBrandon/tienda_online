@@ -3,6 +3,7 @@ include '../../../config/config.php';
 include '../../../php/conexion.php';
 
 $producto = (isset($_GET["producto"])) ? $_GET["producto"] : "";
+$focus = (isset($_GET["focus"])) ? $_GET["focus"] : "productos";
 
 if ($producto == "") {
     print_r("Oh no! Ha ocurrido un error inesperado");
@@ -89,7 +90,7 @@ if ($producto == "") {
 
             <div class="mb-5 text-end">
                 <button class="btn btn-lg btn-success rounded-0 border-3 text-uppercase" type="submit">Guardar Cambios</button>
-                <a class="btn btn-lg btn-secondary rounded-0 border-3 text-uppercase" href="<?= URL_RAIZ ?>view/dashboard/productos/">Volver</a>
+                <a class="btn btn-lg btn-secondary rounded-0 border-3 text-uppercase" href="<?= URL_RAIZ ?>view/dashboard/<?= $focus ?>/">Volver</a>
             </div>
 
         </div>

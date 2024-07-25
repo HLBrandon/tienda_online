@@ -24,12 +24,11 @@ include '../../../php/conexion.php';
                 <th class="text-center">Stock</th>
                 <th class="text-center">Total</th>
                 <th class="text-center">Status</th>
-                <th class="text-center">Acción</th>
             </tr>
         </thead>
         <tbody id="cuerpo_tabla_cliente" class="bg-white">
             <?php
-            $sql = "SELECT id, nombre_producto, medida_talla, precio, stock, tp.status_id, status FROM tallas_productos tp
+            $sql = "SELECT id, nombre_producto, tp.producto_id, medida_talla, precio, stock, tp.status_id, status FROM tallas_productos tp
                     INNER JOIN productos p ON tp.producto_id = p.producto_id
                     INNER JOIN tallas t ON tp.talla_id = t.talla_id
                     INNER JOIN status st ON tp.status_id = st.status_id
@@ -40,7 +39,7 @@ include '../../../php/conexion.php';
                 <tr>
                     <td class="text-center"><?= $row->id ?></td>
                     <td class="text-center">
-                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="<?= URL_RAIZ ?>view/dashboard/productos/show.php?producto=<?= $row->producto_id ?>"><?= $row->nombre_producto ?></a>
+                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="<?= URL_RAIZ ?>view/dashboard/productos/show.php?producto=<?= $row->producto_id ?>&focus=<?= $titulo[4] ?>"><?= $row->nombre_producto ?></a>
                     </td>
                     <td class="text-center"><?= $row->medida_talla ?></td>
                     <td class="text-center"><?= PESO . number_format($row->precio, 2) . MONEDA ?></td>
@@ -63,9 +62,6 @@ include '../../../php/conexion.php';
                                 break;
                         }
                         ?>
-                    </td>
-                    <td class="text-center">
-
                     </td>
                 </tr>
             <?php endwhile; ?>

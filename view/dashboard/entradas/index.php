@@ -42,7 +42,7 @@ include '../../../php/conexion.php';
                         <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="<?= URL_RAIZ ?>view/dashboard/proveedores/show.php?proveedor=<?= $row->proveedor_id ?>"><?= $row->nombre_proveedor ?></a>
                     </td>
                     <td class="text-center">
-                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="<?= URL_RAIZ ?>view/dashboard/productos/show.php?producto=<?= $row->producto_id ?>"><?= $row->nombre_producto ?></a>
+                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="<?= URL_RAIZ ?>view/dashboard/productos/show.php?producto=<?= $row->producto_id ?>&focus=<?= $titulo[4] ?>"><?= $row->nombre_producto ?></a>
                     </td>
                     <td class="text-center"><?= $row->medida_talla ?></td>
                     <td class="text-center"><?= number_format($row->precio, 2) . MONEDA ?></td>
